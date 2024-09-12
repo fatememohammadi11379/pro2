@@ -21,10 +21,6 @@ def api_to_wallex(request, coin_name):
 
 
 
-
-
-
-
 def send_email_view(request):  
     subject = 'Warning'  
     message = ''  
