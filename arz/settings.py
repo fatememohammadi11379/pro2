@@ -122,6 +122,23 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+from datetime import timedelta
+
+CELERY_BROKER_URL = 'amqp://localhost'
+
+CELERY_ROUTES = {
+    'coin.tasks.send_email_task': {'queue': '<queue_name>'},
+}
+
+
+CELERY_BEAT_SCHEDULE = {
+    'check_positions': {
+        'task': 'coin.tasks.send_email_task',
+        'schedule': timedelta(minutes=5),
+    },
+}
+
+
 
 
  
@@ -136,3 +153,5 @@ EMAIL_HOST_PASSWORD = '951413'
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_ACCEPT_CONTENT = ['json']  
 CELERY_TASK_SERIALIZER = 'json'
+
+
