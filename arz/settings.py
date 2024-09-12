@@ -150,7 +150,6 @@ EMAIL_HOST_USER = 'soroushsalamti94@gmail.com'
 EMAIL_HOST_PASSWORD = '951413'  
 
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_ACCEPT_CONTENT = ['json']  
 CELERY_TASK_SERIALIZER = 'json'
 
